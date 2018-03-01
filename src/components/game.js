@@ -9,16 +9,16 @@ export default class Game extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            guess: null,
+            // guess: null,
             randNum: Math.floor(Math.random() * 100) + 1,
             count: []
         }
     }
     
-    userGuess(guess) {
+    userGuess(nextGuess) {
         this.setState({
-            guess,
-            count: [...this.state.count, guess]
+            // guess,
+            count: [...this.state.count, nextGuess]
         })
     }
     
