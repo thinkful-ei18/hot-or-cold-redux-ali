@@ -25,6 +25,10 @@ export default class Game extends React.Component {
     userFeedback(guess, randNum) {
         if (guess === undefined) {
             return 'Make a guess!'
+        } else if (guess > randNum && guess < randNum+10) {
+            return 'Guess too high but warm';
+        } else if (guess < randNum && guess > randNum-10) {
+            return 'Guess too small but warm';
         } else if (guess > randNum) {
             return 'Guess too high';
         } else if (guess < randNum) {
