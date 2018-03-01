@@ -41,8 +41,8 @@ export default class Game extends React.Component {
                 <GuessSection userGuess={(guess) => this.userGuess(guess)} 
                 feedback={() => this.userFeedback(this.state.guess, this.state.randNum)}
                 />
-                <GuessCount count={3} />
-                <GuessList guesses={[10, 15, 25]} />
+                <GuessCount count={() => this.state.count.length} />
+                <GuessList guesses={this.state.count} />
             </div>
         );
     }
