@@ -6,7 +6,7 @@ export default function GuessForm(props) {
     let guess;
 
     return (
-        <form onClick={(e) => {
+        <form onSubmit={(e) => {
             e.preventDefault();
             props.guess(guess);
         }}>
