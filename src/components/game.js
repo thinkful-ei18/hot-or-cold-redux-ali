@@ -9,7 +9,6 @@ export default class Game extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            guess: null,
             randNum: Math.floor(Math.random() * 100) + 1,
             count: []
         }
@@ -17,13 +16,12 @@ export default class Game extends React.Component {
     
     userGuess(guess) {
         this.setState({
-            guess,
             count: [...this.state.count, guess]
         })
     }
     
     userFeedback(guess, randNum) {
-        if (guess === null) {
+        if (guess === undefined) {
             return 'Make a guess!'
         } else if (guess > randNum) {
             return 'Guess too high';
@@ -39,7 +37,7 @@ export default class Game extends React.Component {
             <div>
                 <Header />
                 <GuessSection userGuess={(guess) => this.userGuess(guess)} 
-                feedback={() => this.userFeedback(this.state.guess, this.state.randNum)}
+                feedback={() => this.userFeedback(this.state.count[this.state.count.length-1], this.state.randNum)}
                 />
                 <GuessCount count={() => this.state.count.length} />
                 <GuessList guesses={this.state.count} />
