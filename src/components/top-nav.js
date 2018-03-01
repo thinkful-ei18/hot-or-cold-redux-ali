@@ -7,7 +7,8 @@ export default function TopNav(props) {
         <nav>
             <ul className="clearfix">
                 <li>
-                    <a className="what" href="#">
+                    <a onClick={() => alert(` 1. I pick a random secret number between 1 to 100 and keep it hidden. \n 2. You need to guess until you can find the hidden secret number. \n 3. You will get feedback on how close ("hot") or far ("cold") your guess is.
+                    `)} className="what" href="#">
                         What?
                     </a>
                 </li>
