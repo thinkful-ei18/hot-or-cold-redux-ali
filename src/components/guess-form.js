@@ -2,19 +2,28 @@ import React from 'react';
 
 import './guess-form.css';
 
-export default function GuessForm(props) {
-    let guess;
+export default class GuessForm extends React.Component {
+    constructor(props) {
+        super(props);
+        
+        this.state = {
+            guess: ''
+        }
+    }
+    // let guess;
 
-    return (
-        <form onSubmit={(e) => {
-            e.preventDefault();
-            props.guess(guess);
-        }}>
-            <input type="text" name="userGuess" id="userGuess"
-                className="text" maxLength="3" autoComplete="off"
-                placeholder="Enter your Guess" required onChange={(e) => guess = e.target.value}/>
-            <input type="submit" id="guessButton" className="button" name="submit" value="Guess"/>
-        </form>
-    );
+    render() {
+        return (
+            <form onSubmit={(e) => {
+                e.preventDefault();
+                this.props.guess(this.props.guess);
+            }}>
+                <input type="text" name="userGuess" id="userGuess"
+                    className="text" maxLength="3" autoComplete="off"
+                    placeholder="Enter your Guess" required ref={(input) => this.setState({guess: input})}/>
+                <input type="submit" id="guessButton" className="button" name="submit" value="Guess"/>
+            </form>
+        );
+    }
 };
 
