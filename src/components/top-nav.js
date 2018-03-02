@@ -36,6 +36,6 @@ export default class TopNav extends React.Component {
             </div>
         );
     }
-    
+
 }
 
