@@ -20,6 +20,7 @@ const guessReducer = (state = intialState, action) => {
       };
     default:
       return state;
+    //
   }
 };
 
